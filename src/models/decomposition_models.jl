@@ -66,6 +66,14 @@ function MMI.transform(::PCA, fr::PCAFitResultType, X)
     return MMI.table(Xnew, prototype=X)
 end
 
+function MMI.inverse_transform(::PCA, fr::PCAFitResultType, X)
+    # X is n × d, need to transpose twice...
+    Xarray = MMI.matrix(X)
+    Xorigin = transpose(MS.reconstruct(fr, transpose(Xarray)))
+    return MMI.table(Xorigin, prototype=X)
+end
+
+
 metadata_model(PCA,
     input=Table(Continuous),
     output=Table(Continuous),
