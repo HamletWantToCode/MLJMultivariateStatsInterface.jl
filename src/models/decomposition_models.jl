@@ -55,7 +55,6 @@ function MMI.fit(model::PCA, verbosity::Int, X)
     return fitresult, cache, report
 end
 
-<<<<<<< HEAD
 function MMI.fitted_params(::PCA, fr)
     return (projection=copy(MS.projection(fr)),)
 end
@@ -75,8 +74,6 @@ function MMI.inverse_transform(::PCA, fr::PCAFitResultType, X)
 end
 
 
-=======
->>>>>>> 8acf6e076fb7ea2286136510803b258780307b29
 metadata_model(PCA,
     input=Table(Continuous),
     output=Table(Continuous),
